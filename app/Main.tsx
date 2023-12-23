@@ -3,7 +3,7 @@ import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
-
+import Image from '@/components/Image'
 const MAX_DISPLAY = 5
 
 export default function Home({ posts }) {
@@ -23,16 +23,25 @@ export default function Home({ posts }) {
           {posts.slice(0, MAX_DISPLAY).map((post) => {
             const { slug, date, title, summary, tags } = post
             return (
-              <li key={slug} className="py-12">
+              <li key={slug} className="bg-white-100 py-12">
                 <article>
-                  <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
-                    <dl>
+                  <div className="items-center space-y-2 xl:grid xl:grid-cols-6 xl:items-center  xl:space-y-0">
+                    <dl className="shadow-md shadow-gray-300 xl:col-span-2">
                       <dt className="sr-only">Published on</dt>
                       <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                        <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
+                        <Image
+                          alt="cover"
+                          width={900}
+                          height={200}
+                          object-fit="contain"
+                          src="/static/images/canada/maple.jpg"
+                          className=" object-cover object-center"
+                          blurDataURL="/static/images/canada/maple.jpg"
+                          placeholder="blur"
+                        ></Image>
                       </dd>
                     </dl>
-                    <div className="space-y-5 xl:col-span-3">
+                    <div className="space-y-5 xl:col-span-4 xl:px-12">
                       <div className="space-y-6">
                         <div>
                           <h2 className="text-2xl font-bold leading-8 tracking-tight">
@@ -43,6 +52,9 @@ export default function Home({ posts }) {
                               {title}
                             </Link>
                           </h2>
+                          <div className="text-gray-500 dark:text-gray-400">
+                            <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
+                          </div>
                           <div className="flex flex-wrap">
                             {tags.map((tag) => (
                               <Tag key={tag} text={tag} />
