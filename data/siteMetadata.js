@@ -6,7 +6,7 @@ const siteMetadata = {
   description: 'A website about image processing tips and tools',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://localhost:3000',
+  siteUrl: 'https://picbaker.com',
   // siteRepo: 'https://github.com/',
   siteLogo: '/static/images/logo.png',
   socialBanner: '/static/images/twitter-card.png',
