@@ -21,7 +21,7 @@ export default function Home({ posts }) {
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}
           {posts.slice(0, MAX_DISPLAY).map((post) => {
-            const { slug, date, title, summary, tags } = post
+            const { slug, date, title, summary, tags, canonicalUrl} = post
             return (
               <li key={slug} className="bg-white-100 py-12">
                 <article>
@@ -34,10 +34,10 @@ export default function Home({ posts }) {
                           width={900}
                           height={200}
                           object-fit="contain"
-                          src="/static/images/canada/maple.jpg"
+                          src={canonicalUrl || ""}
                           className=" object-cover object-center"
-                          blurDataURL="/static/images/canada/maple.jpg"
-                          placeholder="blur"
+                          // blurDataURL="/static/images/canada/maple.jpg"
+                          // placeholder="blur"
                         ></Image>
                       </dd>
                     </dl>

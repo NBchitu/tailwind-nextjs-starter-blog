@@ -6,7 +6,8 @@ const siteMetadata = {
   description: 'A website about image processing tips and tools',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://picbaker.com',
+  mainSiteUrl: 'https://picbaker.com',   // the main site
+  siteUrl: 'https://picbaker.com/blog',  // the url of your site (the blog is the subsite)
   // siteRepo: 'https://github.com/',
   siteLogo: '/static/images/logo.png',
   socialBanner: '/static/images/twitter-card.png',
@@ -75,7 +76,7 @@ const siteMetadata = {
   search: {
     provider: 'kbar', // kbar or algolia
     kbarConfig: {
-      searchDocumentsPath: 'search.json', // path to load documents to search
+      searchDocumentsPath: 'blog/search.json', // path to load documents to search
     },
     // provider: 'algolia',
     // algoliaConfig: {

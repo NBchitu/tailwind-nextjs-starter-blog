@@ -4,6 +4,7 @@ import siteMetadata from '@/data/siteMetadata'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = siteMetadata.siteUrl
+  const mainSiteUrl = siteMetadata.mainSiteUrl;
 
   const blogRoutes = allBlogs
     .filter((post) => !post.draft)
@@ -16,7 +17,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${siteUrl}/${route}`,
     lastModified: new Date().toISOString().split('T')[0],
   }))
+
+  const mainSite = {
+    url: `${mainSiteUrl}`,
+    lastModified: new Date().toISOString().split('T')[0],
+  }
   console.log(routes)
 
-  return [...routes, ...blogRoutes]
+  return [mainSite, ...routes, ...blogRoutes]
 }
